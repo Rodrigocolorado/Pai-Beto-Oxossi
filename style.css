@@ -12,7 +12,7 @@
 
 body {
     /* 1. Aponta para onde a imagem está salva */
-    background-image:"assets/foto3.png");
+    background-image: url('assets/foto3.png');
 
     /* 2. AJUSTE CHAVE: Faz a imagem cobrir toda a área sem distorcer */
     /* Ela pode cortar um pouco as bordas, mas preenche tudo */
