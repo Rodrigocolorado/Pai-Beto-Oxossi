@@ -360,3 +360,108 @@ body::before {
 .highlight-section a {
     max-width: 600px;
 }
+
+/* =========================
+   BLOCO DE CONVERSÃO
+========================= */
+.highlight-section {
+    background: linear-gradient(180deg, #001a0a, #003d1f);
+    padding: 120px 20px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 70vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* AURA */
+.highlight-section::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(212,175,55,0.15), transparent 70%);
+    top: -100px;
+    z-index: 0;
+}
+
+/* BADGE */
+.badge-urgencia {
+    background: rgba(212,175,55,0.1);
+    color: var(--oxum-gold);
+    padding: 8px 20px;
+    border: 1px solid var(--oxum-gold);
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+/* TÍTULO */
+.highlight-section h2 {
+    font-family: 'Cinzel';
+    color: var(--oxum-gold);
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px var(--oxum-gold-glow);
+}
+
+/* TEXOS */
+.subtexto {
+    color: #ccc;
+    font-style: italic;
+    max-width: 600px;
+    margin-bottom: 15px;
+}
+
+.descricao {
+    max-width: 600px;
+    margin-bottom: 30px;
+    color: #ddd;
+}
+
+/* BOTÃO TURBINADO */
+.btn-ancestral {
+    background: linear-gradient(90deg, #000, #003d1f);
+    border: 2px solid var(--oxum-gold);
+    color: var(--oxum-gold);
+    padding: 18px 50px;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+/* brilho passando */
+.btn-ancestral::before {
+    content: "";
+    position: absolute;
+    width: 300%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, var(--oxum-gold), transparent);
+    top: 0;
+    left: -100%;
+    transition: 0.6s;
+}
+
+.btn-ancestral:hover::before {
+    left: 100%;
+}
+
+.btn-ancestral:hover {
+    background: var(--oxum-gold);
+    color: #000;
+    box-shadow: 0 0 30px var(--oxum-gold-glow);
+}
+
+/* PROVA SOCIAL */
+.prova-social {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #aaa;
+}
