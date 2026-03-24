@@ -7,77 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
-<script>
-// ==========================
-// PARTÍCULAS DOURADAS
-// ==========================
-function createParticle() {
-    const p = document.createElement("div");
-    p.className = "gold-particle";
-
-    p.style.left = Math.random() * window.innerWidth + "px";
-    p.style.bottom = "-10px";
-    p.style.animationDuration = (5 + Math.random() * 5) + "s";
-
-    document.body.appendChild(p);
-
-    setTimeout(() => p.remove(), 10000);
-}
-
-setInterval(createParticle, 300);
-
-// ==========================
-// FUMAÇA
-// ==========================
-function createSmoke() {
-    const s = document.createElement("div");
-    s.className = "smoke";
-    s.style.left = Math.random() * window.innerWidth + "px";
-
-    document.body.appendChild(s);
-
-    setTimeout(() => s.remove(), 20000);
-}
-
-setInterval(createSmoke, 2000);
-
-// ==========================
-// SOM ESPIRITUAL
-// ==========================
-const sound = new Audio("https://cdn.pixabay.com/audio/2022/03/15/audio_115b9b1e3f.mp3");
-
-document.querySelectorAll("a, .card-lendario, .btn-ancestral").forEach(el => {
-    el.addEventListener("click", () => {
-        sound.currentTime = 0;
-        sound.play();
-    });
-});
-
-// ==========================
-// CURSOR MÍSTICO
-// ==========================
-document.addEventListener("mousemove", e => {
-    const glow = document.createElement("div");
-    glow.style.position = "fixed";
-    glow.style.left = e.clientX + "px";
-    glow.style.top = e.clientY + "px";
-    glow.style.width = "8px";
-    glow.style.height = "8px";
-    glow.style.background = "gold";
-    glow.style.borderRadius = "50%";
-    glow.style.pointerEvents = "none";
-    glow.style.boxShadow = "0 0 10px gold";
-    glow.style.zIndex = "999";
-
-    document.body.appendChild(glow);
-
-    setTimeout(() => glow.remove(), 300);
-});
-</script>
-
-
-    
+  
 <body>
 
     <div class="mystic-smoke"></div>
@@ -128,6 +58,29 @@ document.addEventListener("mousemove", e => {
         </article>
     </div>
 
+<section class="tarot-section">
+    <h2 class="titulo-tarot">Escolha seu Caminho</h2>
+
+    <div class="tarot-container">
+        <div class="tarot-card" data-msg="Uma grande mudança espiritual está se aproximando. Confie no seu caminho.">
+            <div class="face front"></div>
+            <div class="face back">Mensagem revelada</div>
+        </div>
+
+        <div class="tarot-card" data-msg="Oxóssi abre seus caminhos. Prosperidade e proteção estão com você.">
+            <div class="face front"></div>
+            <div class="face back">Mensagem revelada</div>
+        </div>
+
+        <div class="tarot-card" data-msg="Seus guias pedem paciência. O tempo certo está chegando.">
+            <div class="face front"></div>
+            <div class="face back">Mensagem revelada</div>
+        </div>
+    </div>
+
+    <p id="tarot-result"></p>
+</section>
+    
     <section class="highlight-section">
         <h2>CONSULTAS POR VIDEO CHAMADAS!</h2>
         <p>O Caçador nunca erra o alvo. Agende agora seu atendimento espiritual.</p>
