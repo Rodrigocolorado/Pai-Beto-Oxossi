@@ -1,0 +1,121 @@
+:root {
+    --oxum-gold: #D4AF37;
+    --oxum-gold-glow: rgba(212, 175, 55, 0.6);
+    --oxossi-green: #004b23;
+    --oxossi-green-light: #38b000;
+    --deep-black: #050505;
+    --spirit-white: #fcfaf1;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Lato', sans-serif;
+    background: var(--deep-black);
+    color: var(--spirit-white);
+    background-image: radial-gradient(circle at 50% 0%, rgba(0, 128, 0, 0.2) 0%, transparent 50%);
+    overflow-x: hidden;
+}
+
+/* Header & Typography */
+header { text-align: center; padding: 80px 20px 40px; position: relative; z-index: 10; }
+
+.casa-nome {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    color: var(--oxum-gold);
+    letter-spacing: 8px;
+    text-shadow: 0 0 15px var(--oxum-gold-glow);
+}
+
+.subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--oxossi-green-light);
+    letter-spacing: 3px;
+}
+
+/* Profile Section */
+.main-profile { display: flex; flex-direction: column; align-items: center; padding: 40px 20px; z-index: 10; position: relative; }
+
+.photo-reveal {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin-bottom: 30px;
+    border: 4px solid var(--oxum-gold);
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+}
+
+.photo-reveal img { width: 100%; height: 100%; object-fit: cover; filter: sepia(20%); }
+
+.quote-container {
+    max-width: 700px;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #bbb;
+}
+
+/* Grid Cards */
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 60px 5%;
+}
+
+.card-lendario {
+    background: linear-gradient(145deg, #062a14, #031a0d);
+    border: 1px solid var(--oxossi-green-light);
+    padding: 40px;
+    transition: 0.4s;
+    position: relative;
+}
+
+.card-lendario:hover {
+    transform: translateY(-10px);
+    border-color: var(--oxum-gold);
+}
+
+.card-lendario h3 { font-family: 'Cinzel', serif; color: var(--oxum-gold); margin-bottom: 15px; }
+
+/* Social Links */
+.social-links, .floating-social { display: flex; gap: 15px; z-index: 100; }
+
+.floating-social { position: fixed; left: 20px; top: 50%; transform: translateY(-50%); flex-direction: column; }
+
+.social-item {
+    width: 45px; height: 45px;
+    border: 1px solid var(--oxum-gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--oxum-gold);
+    text-decoration: none;
+    transition: 0.4s;
+    background: rgba(0,0,0,0.6);
+}
+
+.social-item:hover { background: var(--oxum-gold); color: var(--oxossi-green); transform: scale(1.1); }
+
+/* CTA & Footer */
+.highlight-section { background: var(--oxossi-green); padding: 80px 20px; text-align: center; clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%); }
+
+.btn-ancestral {
+    border: 2px solid var(--oxum-gold);
+    color: var(--oxum-gold);
+    padding: 15px 40px;
+    font-family: 'Cinzel';
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+footer { padding: 80px 20px; text-align: center; background: #001a0a; }
+
+.axe-text { font-family: 'Cinzel'; font-size: 2rem; color: var(--oxum-gold); display: block; margin-bottom: 20px; }
+
+.leaf-particle { position: fixed; pointer-events: none; z-index: 5; animation: fall linear forwards; }
+
+@keyframes fall { to { transform: translateY(100vh) rotate(360deg); opacity: 0; } }
