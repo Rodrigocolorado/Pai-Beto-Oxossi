@@ -27,3 +27,25 @@ setInterval(createLeaf, 2000);
 console.log("%c🌿 Reino de Oxóssi 🌿%c\nQue a flecha do caçador guie seu caminho.", 
             "color: #D4AF37; font-size: 20px; font-weight: bold; font-family: serif;", 
             "color: #38b000; font-size: 14px;");
+
+<script>
+function startCountdown(duration) {
+    let timer = duration, minutes, seconds;
+
+    setInterval(() => {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        document.getElementById("countdown").innerText =
+            "⏳ Restam " + minutes + ":" + seconds + " para garantir sua consulta hoje";
+
+        if (--timer < 0) timer = duration;
+    }, 1000);
+}
+
+startCountdown(900); // 15 minutos
+</script>
+
