@@ -336,3 +336,27 @@ body::before {
     0% { left: -100%; }
     100% { left: 100%; }
 }
+
+.highlight-section {
+    background: var(--oxossi-green);
+    padding: 100px 20px;
+    text-align: center;
+
+    /* CENTRALIZAÇÃO PERFEITA */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertical */
+    align-items: center;     /* horizontal */
+
+    /* deixa a seção ocupar altura da tela */
+    min-height: 60vh;
+
+    /* estilo visual */
+    clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+}
+
+.highlight-section h2,
+.highlight-section p,
+.highlight-section a {
+    max-width: 600px;
+}
