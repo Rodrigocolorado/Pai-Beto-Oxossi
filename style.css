@@ -9,13 +9,6 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body {
-    font-family: 'Lato', sans-serif;
-    background: var(--deep-black);
-    color: var(--spirit-white);
-    background-image: radial-gradient(circle at 50% 0%, rgba(0, 128, 0, 0.2) 0%, transparent 50%);
-    overflow-x: hidden;
-}
 
 body {
     /* 1. Aponta para onde a imagem está salva */
