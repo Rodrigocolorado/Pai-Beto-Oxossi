@@ -180,16 +180,34 @@ footer { padding: 80px 20px; text-align: center; background: #001a0a; }
 
 @keyframes fall { to { transform: translateY(100vh) rotate(360deg); opacity: 0; } }
 
-.card-lendario p,
-.quote-container,
-.subtitle {
-    text-decoration: underline;
-    text-decoration-color: var(--oxum-gold);
+/* Linha dourada animada correndo */
+p, span, a, li {
+    position: relative;
+    text-decoration: none;
+}
+
+p::after, span::after, a::after, li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--oxum-gold),
+        #fff3b0,
+        var(--oxum-gold),
+        transparent
+    );
+    background-size: 200% 100%;
+    animation: gold-line-move 3s linear infinite;
+}
+
+@keyframes gold-line-move {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
 }
 
 
-
-/* Se tiver links, garanta que eles tenham cor de destaque */
-.conteudo a {
-    color: #ffd700; /* Cor dourada para links sobre fundo escuro */
-}
