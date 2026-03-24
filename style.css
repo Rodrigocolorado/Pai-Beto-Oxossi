@@ -1,182 +1,251 @@
 :root {
     --oxum-gold: #D4AF37;
-    --oxum-gold-glow: rgba(212, 175, 55, 0.6);
+    --oxum-gold-light: #fff3b0;
+    --oxum-gold-glow: rgba(212, 175, 55, 0.7);
     --oxossi-green: #004b23;
     --oxossi-green-light: #38b000;
     --deep-black: #050505;
     --spirit-white: #fcfaf1;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-
-body {
-    /* 1. Aponta para onde a imagem está salva */
-    background-image: url('https://github.com/Rodrigocolorado/Pai-Beto-Oxossi/blob/main/assets/foto3.png');
-
-    /* 2. AJUSTE CHAVE: Faz a imagem cobrir toda a área sem distorcer */
-    /* Ela pode cortar um pouco as bordas, mas preenche tudo */
-    background-size: cover;
-
-    /* 3. Centraliza a imagem na tela */
-    background-position: center;
-
-    /* 4. Impede que a imagem fique se repetindo (lado a lado) */
-    background-repeat: no-repeat;
-
-    /* 5. (Opcional) Fixa o fundo enquanto você rola a página */
-    /* Dá um efeito elegante, mas pode ser desativado em celulares antigos */
-    background-attachment: fixed;
-
-    /* 6. Cor de fundo de segurança (caso a imagem não carregue) */
-    /* Use uma cor parecida com a da imagem (ex: cinza claro ou creme) */
-    background-color: #f4f4f4;
-
-    /* Garante que o corpo tenha altura total */
-    min-height: 100vh;
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* BACKGROUND ULTRA PREMIUM */
+body {
+    background-image: 
+        linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
+        url('https://raw.githubusercontent.com/Rodrigocolorado/Pai-Beto-Oxossi/main/assets/foto3.png');
 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #000;
 
-/* Header & Typography */
-header { text-align: center; padding: 80px 20px 40px; position: relative; z-index: 10; }
+    min-height: 100vh;
+    color: var(--spirit-white);
+    font-family: 'Playfair Display', serif;
+}
+
+/* LINHA DOURADA ANIMADA GLOBAL */
+p, span, a, li {
+    position: relative;
+    text-decoration: none;
+}
+
+p::after, span::after, a::after, li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--oxum-gold),
+        var(--oxum-gold-light),
+        var(--oxum-gold),
+        transparent
+    );
+    background-size: 200% 100%;
+    animation: gold-flow 3s linear infinite;
+}
+
+@keyframes gold-flow {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 100px 20px 50px;
+    z-index: 10;
+    position: relative;
+}
 
 .casa-nome {
     font-family: 'Cinzel', serif;
-    font-size: clamp(2rem, 5vw, 4rem);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
     color: var(--oxum-gold);
-    letter-spacing: 8px;
-    text-shadow: 0 0 15px var(--oxum-gold-glow);
+    letter-spacing: 10px;
+    text-shadow: 
+        0 0 10px var(--oxum-gold-glow),
+        0 0 30px var(--oxum-gold-glow),
+        0 0 60px rgba(212,175,55,0.3);
+    animation: glowPulse 3s infinite ease-in-out;
+}
+
+@keyframes glowPulse {
+    0%,100% { text-shadow: 0 0 15px var(--oxum-gold-glow); }
+    50% { text-shadow: 0 0 40px var(--oxum-gold-glow); }
 }
 
 .subtitle {
-    font-family: 'Playfair Display', serif;
     font-style: italic;
     color: var(--oxossi-green-light);
-    letter-spacing: 3px;
+    letter-spacing: 4px;
 }
 
-/* Profile Section */
-.main-profile { display: flex; flex-direction: column; align-items: center; padding: 40px 20px; z-index: 10; position: relative; }
+/* PROFILE */
+.main-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+}
 
 .photo-reveal {
-    position: relative;
     width: 300px;
     height: 400px;
-    margin-bottom: 30px;
-    border: 4px solid var(--oxum-gold);
-    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    border: 3px solid var(--oxum-gold);
+    box-shadow: 
+        0 0 25px var(--oxum-gold-glow),
+        0 0 80px rgba(0,0,0,0.9);
+    overflow: hidden;
+    transition: 0.5s;
 }
 
-.photo-reveal img { width: 100%; height: 100%; object-fit: cover; filter: sepia(20%); }
+.photo-reveal:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 40px var(--oxum-gold-glow);
+}
+
+.photo-reveal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(20%) contrast(110%);
+}
 
 .quote-container {
     max-width: 700px;
     text-align: center;
     margin-top: 30px;
-    font-size: 1.1rem;
+    color: #ccc;
     font-style: italic;
-    color: #bbb;
 }
 
-/* Grid Cards */
+/* CARDS */
 .grid-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 60px 5%;
+    gap: 40px;
+    padding: 80px 5%;
 }
 
 .card-lendario {
-    background: linear-gradient(145deg, #062a14, #031a0d);
-    border: 1px solid var(--oxossi-green-light);
+    background: linear-gradient(145deg, #031a0d, #000);
+    border: 1px solid rgba(56,176,0,0.3);
     padding: 40px;
-    transition: 0.4s;
+    transition: 0.5s;
+    backdrop-filter: blur(8px);
     position: relative;
 }
 
 .card-lendario:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px) scale(1.02);
     border-color: var(--oxum-gold);
+    box-shadow: 0 0 30px rgba(212,175,55,0.2);
 }
 
-.card-lendario h3 { font-family: 'Cinzel', serif; color: var(--oxum-gold); margin-bottom: 15px; }
+.card-lendario h3 {
+    font-family: 'Cinzel';
+    color: var(--oxum-gold);
+}
 
-/* Social Links */
-.social-links, .floating-social { display: flex; gap: 15px; z-index: 100; }
-
-.floating-social { position: fixed; left: 20px; top: 50%; transform: translateY(-50%); flex-direction: column; }
+/* SOCIAL */
+.floating-social {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
 .social-item {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     border: 1px solid var(--oxum-gold);
     border-radius: 50%;
-    display: inline-flex; /* Alterado para garantir centralização */
+    display: flex;
     align-items: center;
     justify-content: center;
     color: var(--oxum-gold);
-    text-decoration: none;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    background: rgba(0, 0, 0, 0.7);
-    font-size: 1.2rem; /* Tamanho do ícone */
-    position: relative;
-}
-
-.social-item i {
-    display: block;
+    background: rgba(0,0,0,0.6);
+    transition: 0.4s;
 }
 
 .social-item:hover {
     background: var(--oxum-gold);
-    color: var(--oxossi-green) !important; /* Inverte a cor no hover */
-    transform: translateY(-5px) scale(1.1);
+    color: var(--oxossi-green);
+    transform: scale(1.15);
     box-shadow: 0 0 20px var(--oxum-gold-glow);
 }
 
-/* Garante que o ícone dentro do link mude de cor no hover */
-.social-item:hover i {
-    color: var(--oxossi-green);
-}
-
-/* Tooltip (Legenda que aparece ao passar o mouse) */
-.social-item::after {
-    content: attr(data-name);
-    position: absolute;
-    bottom: -30px;
-    font-family: 'Cinzel', serif;
-    font-size: 0.65rem;
-    color: var(--oxum-gold);
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.3s;
-    white-space: nowrap;
-}
-
-.social-item:hover::after {
-    opacity: 1;
-    bottom: -25px;
-}
-
-/* CTA & Footer */
-.highlight-section { background: var(--oxossi-green); padding: 80px 20px; text-align: center; clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%); }
-
+/* BOTÃO PREMIUM */
 .btn-ancestral {
     border: 2px solid var(--oxum-gold);
     color: var(--oxum-gold);
     padding: 15px 40px;
     font-family: 'Cinzel';
     text-decoration: none;
-    display: inline-block;
-    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
 }
 
-footer { padding: 80px 20px; text-align: center; background: #001a0a; }
+.btn-ancestral::before {
+    content: "";
+    position: absolute;
+    width: 300%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, var(--oxum-gold), transparent);
+    top: 0;
+    left: -100%;
+    transition: 0.6s;
+}
 
-.axe-text { font-family: 'Cinzel'; font-size: 2rem; color: var(--oxum-gold); display: block; margin-bottom: 20px; }
+.btn-ancestral:hover::before {
+    left: 100%;
+}
 
-.leaf-particle { position: fixed; pointer-events: none; z-index: 5; animation: fall linear forwards; }
+.btn-ancestral:hover {
+    background: var(--oxum-gold);
+    color: var(--deep-black);
+}
 
-@keyframes fall { to { transform: translateY(100vh) rotate(360deg); opacity: 0; } }
+/* FOOTER */
+footer {
+    padding: 80px 20px;
+    text-align: center;
+    background: #001a0a;
+}
 
+.axe-text {
+    font-family: 'Cinzel';
+    font-size: 2rem;
+    color: var(--oxum-gold);
+    text-shadow: 0 0 10px var(--oxum-gold-glow);
+}
+
+/* PARTÍCULAS */
+.leaf-particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 5;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
