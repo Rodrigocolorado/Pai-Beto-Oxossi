@@ -498,3 +498,15 @@ body::before {
     border: 1px solid var(--oxum-gold);
     padding: 10px 20px;
 }
+
+#notif {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #000;
+    border: 1px solid var(--oxum-gold);
+    padding: 15px;
+    color: var(--oxum-gold);
+    display: none;
+    z-index: 999;
+}
