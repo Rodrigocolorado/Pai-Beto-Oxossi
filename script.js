@@ -57,3 +57,21 @@ document.addEventListener("mouseout", function(e) {
 });
 </script>
 
+<script>
+const mensagens = [
+    "Maria acabou de agendar uma consulta",
+    "João recebeu orientação espiritual agora",
+    "Cliente de SP acabou de entrar em contato",
+    "Novo atendimento iniciado agora"
+];
+
+function showNotif() {
+    const notif = document.getElementById("notif");
+    notif.innerText = mensagens[Math.floor(Math.random() * mensagens.length)];
+    notif.style.display = "block";
+
+    setTimeout(() => notif.style.display = "none", 4000);
+}
+
+setInterval(showNotif, 8000);
+</script>
