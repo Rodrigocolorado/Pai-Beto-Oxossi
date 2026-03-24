@@ -1,512 +1,168 @@
-:root {
-    --oxum-gold: #D4AF37;
-    --oxum-gold-light: #fff3b0;
-    --oxum-gold-glow: rgba(212, 175, 55, 0.7);
-    --oxossi-green: #004b23;
-    --oxossi-green-light: #38b000;
-    --deep-black: #050505;
-    --spirit-white: #fcfaf1;
-}
-
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* BACKGROUND ULTRA PREMIUM */
+/* BASE */
 body {
-    background-image: 
+    font-family: 'Lato', sans-serif;
+    color: #fff;
+    background: 
         linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
         url('https://raw.githubusercontent.com/Rodrigocolorado/Pai-Beto-Oxossi/main/assets/foto3.png');
-
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     background-attachment: fixed;
-    background-color: #000;
-
-    min-height: 100vh;
-    color: var(--spirit-white);
-    font-family: 'Playfair Display', serif;
 }
 
-/* LINHA DOURADA ANIMADA GLOBAL */
-p, span, a, li {
-    position: relative;
-    text-decoration: none;
-}
-
-p::after, span::after, a::after, li::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        var(--oxum-gold),
-        var(--oxum-gold-light),
-        var(--oxum-gold),
-        transparent
-    );
-    background-size: 200% 100%;
-    animation: gold-flow 3s linear infinite;
-}
-
-@keyframes gold-flow {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+/* REMOVE QUALQUER SUBLINHADO */
+* {
+    text-decoration: none !important;
 }
 
 /* HEADER */
 header {
     text-align: center;
-    padding: 100px 20px 50px;
-    z-index: 10;
-    position: relative;
+    padding: 80px 20px 40px;
 }
 
 .casa-nome {
     font-family: 'Cinzel', serif;
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    color: var(--oxum-gold);
-    letter-spacing: 10px;
-    text-shadow: 
-        0 0 10px var(--oxum-gold-glow),
-        0 0 30px var(--oxum-gold-glow),
-        0 0 60px rgba(212,175,55,0.3);
-    animation: glowPulse 3s infinite ease-in-out;
-}
-
-@keyframes glowPulse {
-    0%,100% { text-shadow: 0 0 15px var(--oxum-gold-glow); }
-    50% { text-shadow: 0 0 40px var(--oxum-gold-glow); }
+    font-size: clamp(2rem, 5vw, 4rem);
+    color: #D4AF37;
 }
 
 .subtitle {
-    font-style: italic;
-    color: var(--oxossi-green-light);
-    letter-spacing: 4px;
-}
-
-/* PROFILE */
-.main-profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px 20px;
-}
-
-.photo-reveal {
-    width: 300px;
-    height: 400px;
-    border: 3px solid var(--oxum-gold);
-    box-shadow: 
-        0 0 25px var(--oxum-gold-glow),
-        0 0 80px rgba(0,0,0,0.9);
-    overflow: hidden;
-    transition: 0.5s;
-}
-
-.photo-reveal:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 40px var(--oxum-gold-glow);
-}
-
-.photo-reveal img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: sepia(20%) contrast(110%);
-}
-
-.quote-container {
-    max-width: 700px;
-    text-align: center;
-    margin-top: 30px;
-    color: #ccc;
-    font-style: italic;
-}
-
-/* CARDS */
-.grid-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    padding: 80px 5%;
-}
-
-.card-lendario {
-    background: linear-gradient(145deg, #031a0d, #000);
-    border: 1px solid rgba(56,176,0,0.3);
-    padding: 40px;
-    transition: 0.5s;
-    backdrop-filter: blur(8px);
-    position: relative;
-}
-
-.card-lendario:hover {
-    transform: translateY(-10px) scale(1.02);
-    border-color: var(--oxum-gold);
-    box-shadow: 0 0 30px rgba(212,175,55,0.2);
-}
-
-.card-lendario h3 {
-    font-family: 'Cinzel';
-    color: var(--oxum-gold);
+    color: #38b000;
+    margin-top: 10px;
 }
 
 /* SOCIAL */
 .floating-social {
     position: fixed;
-    left: 20px;
+    left: 15px;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 
 .social-item {
-    width: 50px;
-    height: 50px;
-    border: 1px solid var(--oxum-gold);
+    width: 45px;
+    height: 45px;
+    border: 1px solid #D4AF37;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--oxum-gold);
+    color: #D4AF37;
     background: rgba(0,0,0,0.6);
-    transition: 0.4s;
 }
 
-.social-item:hover {
-    background: var(--oxum-gold);
-    color: var(--oxossi-green);
-    transform: scale(1.15);
-    box-shadow: 0 0 20px var(--oxum-gold-glow);
+/* PERFIL */
+.main-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+    padding: 40px 20px;
 }
 
-/* BOTÃO PREMIUM */
+.photo-reveal img {
+    width: 100%;
+    max-width: 300px;
+    border: 3px solid #D4AF37;
+}
+
+.medium-name {
+    margin-top: 20px;
+    font-size: 1.8rem;
+}
+
+.role-title {
+    color: #ccc;
+}
+
+/* CARDS CENTRALIZADOS */
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.card-lendario {
+    background: rgba(0,0,0,0.7);
+    border: 1px solid #38b000;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.card-lendario h3 {
+    color: #D4AF37;
+    margin-bottom: 10px;
+}
+
+/* TAROT */
+.tarot-section {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.tarot-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* CTA */
+.highlight-section {
+    text-align: center;
+    padding: 100px 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
 .btn-ancestral {
-    border: 2px solid var(--oxum-gold);
-    color: var(--oxum-gold);
-    padding: 15px 40px;
-    font-family: 'Cinzel';
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-ancestral::before {
-    content: "";
-    position: absolute;
-    width: 300%;
-    height: 100%;
-    background: linear-gradient(120deg, transparent, var(--oxum-gold), transparent);
-    top: 0;
-    left: -100%;
-    transition: 0.6s;
-}
-
-.btn-ancestral:hover::before {
-    left: 100%;
-}
-
-.btn-ancestral:hover {
-    background: var(--oxum-gold);
-    color: var(--deep-black);
+    display: inline-block;
+    margin-top: 20px;
+    border: 2px solid #D4AF37;
+    padding: 15px 30px;
+    color: #D4AF37;
 }
 
 /* FOOTER */
 footer {
-    padding: 80px 20px;
     text-align: center;
+    padding: 60px 20px;
     background: #001a0a;
 }
 
-.axe-text {
-    font-family: 'Cinzel';
-    font-size: 2rem;
-    color: var(--oxum-gold);
-    text-shadow: 0 0 10px var(--oxum-gold-glow);
-}
+/* RESPONSIVO */
+@media (max-width: 768px) {
 
-/* PARTÍCULAS */
-.leaf-particle {
-    position: fixed;
-    pointer-events: none;
-    z-index: 5;
-    animation: fall linear forwards;
-}
-
-@keyframes fall {
-    to {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
+    .floating-social {
+        left: 5px;
     }
-}
 
-/* =========================
-   AURA ESPIRITUAL GLOBAL
-========================= */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(circle at center, rgba(212,175,55,0.08), transparent 70%);
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* =========================
-   PARTÍCULAS DOURADAS
-========================= */
-.gold-particle {
-    position: fixed;
-    width: 6px;
-    height: 6px;
-    background: var(--oxum-gold);
-    border-radius: 50%;
-    pointer-events: none;
-    box-shadow: 0 0 10px var(--oxum-gold-glow);
-    animation: floatUp linear forwards;
-    z-index: 3;
-}
-
-@keyframes floatUp {
-    from {
-        transform: translateY(0) scale(1);
-        opacity: 1;
+    .casa-nome {
+        font-size: 2rem;
     }
-    to {
-        transform: translateY(-120vh) scale(0.5);
-        opacity: 0;
+
+    .grid-cards {
+        padding: 40px 15px;
     }
-}
 
-/* =========================
-   FUMAÇA ESPIRITUAL
-========================= */
-.smoke {
-    position: fixed;
-    bottom: -100px;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
-    filter: blur(40px);
-    animation: smokeRise 20s infinite linear;
-    z-index: 2;
-}
-
-@keyframes smokeRise {
-    0% { transform: translateY(0) scale(1); opacity: 0.3; }
-    100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
-}
-
-/* =========================
-   EFEITO AURA HOVER
-========================= */
-.card-lendario:hover,
-.photo-reveal:hover {
-    box-shadow:
-        0 0 20px var(--oxum-gold-glow),
-        0 0 60px rgba(212,175,55,0.2),
-        0 0 100px rgba(212,175,55,0.1);
-}
-
-/* =========================
-   BRILHO MÍSTICO NO TEXTO
-========================= */
-.casa-nome::after {
-    content: "";
-    position: absolute;
-    width: 200%;
-    height: 100%;
-    left: -100%;
-    top: 0;
-    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
-    animation: shine 6s infinite;
-}
-
-@keyframes shine {
-    0% { left: -100%; }
-    100% { left: 100%; }
-}
-
-.highlight-section {
-    background: var(--oxossi-green);
-    padding: 100px 20px;
-    text-align: center;
-
-    /* CENTRALIZAÇÃO PERFEITA */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* vertical */
-    align-items: center;     /* horizontal */
-
-    /* deixa a seção ocupar altura da tela */
-    min-height: 60vh;
-
-    /* estilo visual */
-    clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
-}
-
-.highlight-section h2,
-.highlight-section p,
-.highlight-section a {
-    max-width: 600px;
-}
-
-/* =========================
-   BLOCO DE CONVERSÃO
-========================= */
-.highlight-section {
-    background: linear-gradient(180deg, #001a0a, #003d1f);
-    padding: 120px 20px;
-    text-align: center;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    min-height: 70vh;
-    position: relative;
-    overflow: hidden;
-}
-
-/* AURA */
-.highlight-section::before {
-    content: "";
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(212,175,55,0.15), transparent 70%);
-    top: -100px;
-    z-index: 0;
-}
-
-/* BADGE */
-.badge-urgencia {
-    background: rgba(212,175,55,0.1);
-    color: var(--oxum-gold);
-    padding: 8px 20px;
-    border: 1px solid var(--oxum-gold);
-    font-size: 0.8rem;
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-}
-
-/* TÍTULO */
-.highlight-section h2 {
-    font-family: 'Cinzel';
-    color: var(--oxum-gold);
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 20px;
-    text-shadow: 0 0 20px var(--oxum-gold-glow);
-}
-
-/* TEXOS */
-.subtexto {
-    color: #ccc;
-    font-style: italic;
-    max-width: 600px;
-    margin-bottom: 15px;
-}
-
-.descricao {
-    max-width: 600px;
-    margin-bottom: 30px;
-    color: #ddd;
-}
-
-/* BOTÃO TURBINADO */
-.btn-ancestral {
-    background: linear-gradient(90deg, #000, #003d1f);
-    border: 2px solid var(--oxum-gold);
-    color: var(--oxum-gold);
-    padding: 18px 50px;
-    font-size: 1.1rem;
-    letter-spacing: 2px;
-    position: relative;
-    overflow: hidden;
-    transition: 0.4s;
-}
-
-/* brilho passando */
-.btn-ancestral::before {
-    content: "";
-    position: absolute;
-    width: 300%;
-    height: 100%;
-    background: linear-gradient(120deg, transparent, var(--oxum-gold), transparent);
-    top: 0;
-    left: -100%;
-    transition: 0.6s;
-}
-
-.btn-ancestral:hover::before {
-    left: 100%;
-}
-
-.btn-ancestral:hover {
-    background: var(--oxum-gold);
-    color: #000;
-    box-shadow: 0 0 30px var(--oxum-gold-glow);
-}
-
-/* PROVA SOCIAL */
-.prova-social {
-    margin-top: 20px;
-    font-size: 0.9rem;
-    color: #aaa;
-}
-
-#countdown {
-    margin: 20px 0;
-    font-size: 1.5rem;
-    color: var(--oxum-gold);
-    font-family: 'Cinzel';
-    text-shadow: 0 0 10px var(--oxum-gold-glow);
-
-#exit-popup {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.9);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-}
-
-.popup-box {
-    background: #000;
-    border: 2px solid var(--oxum-gold);
-    padding: 40px;
-    text-align: center;
-    max-width: 400px;
-}
-
-.popup-box a {
-    display: inline-block;
-    margin-top: 20px;
-    color: var(--oxum-gold);
-    border: 1px solid var(--oxum-gold);
-    padding: 10px 20px;
-}
-
-#notif {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background: #000;
-    border: 1px solid var(--oxum-gold);
-    padding: 15px;
-    color: var(--oxum-gold);
-    display: none;
-    z-index: 999;
+    .highlight-section {
+        padding: 60px 15px;
+    }
 }
