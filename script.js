@@ -49,3 +49,11 @@ function startCountdown(duration) {
 startCountdown(900); // 15 minutos
 </script>
 
+<script>
+document.addEventListener("mouseout", function(e) {
+    if (e.clientY < 10) {
+        document.getElementById("exit-popup").style.display = "flex";
+    }
+});
+</script>
+
