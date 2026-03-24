@@ -17,6 +17,35 @@ body {
     overflow-x: hidden;
 }
 
+body {
+    /* 1. Aponta para onde a imagem está salva */
+    background-image:"assets/foto3.png");
+
+    /* 2. AJUSTE CHAVE: Faz a imagem cobrir toda a área sem distorcer */
+    /* Ela pode cortar um pouco as bordas, mas preenche tudo */
+    background-size: cover;
+
+    /* 3. Centraliza a imagem na tela */
+    background-position: center;
+
+    /* 4. Impede que a imagem fique se repetindo (lado a lado) */
+    background-repeat: no-repeat;
+
+    /* 5. (Opcional) Fixa o fundo enquanto você rola a página */
+    /* Dá um efeito elegante, mas pode ser desativado em celulares antigos */
+    background-attachment: fixed;
+
+    /* 6. Cor de fundo de segurança (caso a imagem não carregue) */
+    /* Use uma cor parecida com a da imagem (ex: cinza claro ou creme) */
+    background-color: #f4f4f4;
+
+    /* Garante que o corpo tenha altura total */
+    min-height: 100vh;
+    margin: 0;
+}
+
+
+
 /* Header & Typography */
 header { text-align: center; padding: 80px 20px 40px; position: relative; z-index: 10; }
 
@@ -157,3 +186,5 @@ footer { padding: 80px 20px; text-align: center; background: #001a0a; }
 .leaf-particle { position: fixed; pointer-events: none; z-index: 5; animation: fall linear forwards; }
 
 @keyframes fall { to { transform: translateY(100vh) rotate(360deg); opacity: 0; } }
+
+
