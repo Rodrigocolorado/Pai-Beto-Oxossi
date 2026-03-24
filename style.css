@@ -87,17 +87,55 @@ header { text-align: center; padding: 80px 20px 40px; position: relative; z-inde
 .floating-social { position: fixed; left: 20px; top: 50%; transform: translateY(-50%); flex-direction: column; }
 
 .social-item {
-    width: 45px; height: 45px;
+    width: 45px;
+    height: 45px;
     border: 1px solid var(--oxum-gold);
     border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
+    display: inline-flex; /* Alterado para garantir centralização */
+    align-items: center;
+    justify-content: center;
     color: var(--oxum-gold);
     text-decoration: none;
-    transition: 0.4s;
-    background: rgba(0,0,0,0.6);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: rgba(0, 0, 0, 0.7);
+    font-size: 1.2rem; /* Tamanho do ícone */
+    position: relative;
 }
 
-.social-item:hover { background: var(--oxum-gold); color: var(--oxossi-green); transform: scale(1.1); }
+.social-item i {
+    display: block;
+}
+
+.social-item:hover {
+    background: var(--oxum-gold);
+    color: var(--oxossi-green) !important; /* Inverte a cor no hover */
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 0 20px var(--oxum-gold-glow);
+}
+
+/* Garante que o ícone dentro do link mude de cor no hover */
+.social-item:hover i {
+    color: var(--oxossi-green);
+}
+
+/* Tooltip (Legenda que aparece ao passar o mouse) */
+.social-item::after {
+    content: attr(data-name);
+    position: absolute;
+    bottom: -30px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    color: var(--oxum-gold);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.social-item:hover::after {
+    opacity: 1;
+    bottom: -25px;
+}
 
 /* CTA & Footer */
 .highlight-section { background: var(--oxossi-green); padding: 80px 20px; text-align: center; clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%); }
