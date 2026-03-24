@@ -180,23 +180,14 @@ footer { padding: 80px 20px; text-align: center; background: #001a0a; }
 
 @keyframes fall { to { transform: translateY(100vh) rotate(360deg); opacity: 0; } }
 
-/* Seus contêineres de conteúdo */
-.conteudo, .article, main {
-    /* Fundo preto semi-transparente (80% opaco) */
-    background-color: rgba(0, 0, 0, 0.8);
-    
-    /* Arredonde os cantos para ficar mais bonito */
-    border-radius: 8px;
-    
-    /* Adicione espaçamento interno para o texto não encostar na borda */
-    padding: 30px;
-    
-    /* Use fonte branca lá dentro */
-    color: #ffffff;
-    
-    /* Adicione uma borda sutil opcional */
-    border: 1px solid rgba(255, 255, 255, 0.1);
+.card-lendario p,
+.quote-container,
+.subtitle {
+    text-decoration: underline;
+    text-decoration-color: var(--oxum-gold);
 }
+
+
 
 /* Se tiver links, garanta que eles tenham cor de destaque */
 .conteudo a {
